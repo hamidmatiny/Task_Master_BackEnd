@@ -1,0 +1,12 @@
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache
+.env
+.git
+.gitignore
+Dockerfile
+docker-compose*.yml
+*.swp
+.DS_Store
