@@ -1,9 +1,9 @@
 FROM node:20-bullseye-slim AS frontend-build
 
 WORKDIR /frontend
-COPY frontend/package.json ./
-RUN npm install
-COPY frontend/ ./
+COPY package.json ./
+RUN npm install --no-optional
+COPY . ./
 RUN npm run build
 
 FROM python:3.12-slim

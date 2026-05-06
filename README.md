@@ -40,22 +40,30 @@ A production-ready FastAPI REST API with PostgreSQL, Docker, and GitHub Actions.
 
 ## Development
 
-Install dependencies locally:
+Install backend dependencies locally:
 
 ```bash
 python -m pip install -r requirements.txt
 ```
 
-Run tests:
+Install frontend dependencies:
 
 ```bash
-pytest
+cd frontend
+npm install
 ```
 
-Run locally:
+Run backend locally:
 
 ```bash
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+```
+
+Run frontend locally:
+
+```bash
+cd frontend
+npm run dev
 ```
 
 ## Docker
@@ -63,7 +71,18 @@ uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 The `docker-compose.yml` service definitions include:
 
 - `db` — PostgreSQL 15
-- `web` — FastAPI app
+- `web` — FastAPI app with integrated frontend UI
+
+Start the app stack with:
+
+```bash
+docker compose up --build
+```
+
+Open the application at:
+
+- Full app: http://localhost:8000
+- API docs: http://localhost:8000/docs
 
 ## CI/CD
 
