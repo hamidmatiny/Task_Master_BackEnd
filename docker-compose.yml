@@ -29,5 +29,16 @@ services:
       - .:/app
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 
+frontend:
+    build: ./frontend
+    ports:
+      - '3000:3000'
+    depends_on:
+      - web
+    environment:
+      VITE_API_URL: http://localhost:8000
+    volumes:
+      - ./frontend:/app/frontend
+      - /app/frontend/node_modules
 volumes:
   db-data:
