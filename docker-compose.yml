@@ -31,16 +31,15 @@ services:
 
   # ← Add this new frontend service
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     ports:
       - '3000:3000'
     depends_on:
       - web
     environment:
-      VITE_API_URL: http://localhost:8000
-    volumes:
-      - ./frontend:/app/frontend
-      - /app/frontend/node_modules
+      - VITE_API_URL=http://localhost:8000
 
 volumes:
   db-data:
