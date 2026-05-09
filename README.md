@@ -1,4 +1,4 @@
-# Task Master BackEnd
+# Task Master
 
 A production-ready FastAPI REST API with PostgreSQL, Docker, and GitHub Actions. This project includes:
 
